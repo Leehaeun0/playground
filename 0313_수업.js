@@ -16,3 +16,4 @@ const you = new Person('Kim', 50); // you 라는 생성자 함수를 만듦
 
 me.sayHi(); // 세이하이를 호출하는 방법은 이 방법밖에 없다.
 you.sayHi();
+
