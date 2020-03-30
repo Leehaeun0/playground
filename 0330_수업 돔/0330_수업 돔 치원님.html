@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavascriptTest</title>
+</head>
+<body>
+  <input type="text" class="inputTodo" placeholder="todo">
+  <ul class="list"></ul>
+
+
+  <script>
+    const $inputTodo = document.querySelector('.inputTodo');
+    const $list = document.querySelector('.list');
+    console.dir($inputTodo);
+
+    $inputTodo.onkeyup = (e) => {
+      if (e.keyCode !== 13) return;
+      $list.innerHTML +=
+        `<li><input class="middleLine" type="checkbox"> ${$inputTodo.value} <button class="deleteBt">삭제</button></li>`;
+      $inputTodo.value = '';
+    };
+    
+    $list.onclick = (e) => {
+      console.log(e.target.nodeName);
+      if (e.target.nodeName === 'INPUT') {
+        e.target.parentNode.style.textDecoration = e.target.checked ? 'line-through' : 'none';
+      } else if (e.target.nodeName === 'BUTTON') {
+        $list.removeChild(e.target.parentNode);
+      }
+    };
+  </script>
+</body>
+</html>

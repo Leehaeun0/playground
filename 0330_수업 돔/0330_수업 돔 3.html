@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  
+</head>
+<body>
+  <input type="text" class="todo" placeholder="enter todos!">
+  <ul class="todos"></ul>
+</body>
+<script>
+  const $todo = document.querySelector('.todo');
+  const $todos = document.querySelector('.todos');
+
+  // console.dir($todo);
+
+  $todo.onkeyup = function (e) {
+    if (e.keyCode !== 13) return;
+    $todos.innerHTML += `<li>${$todo.value}</li>`; // 사용자 지정값 value
+    // $todos.innerHTML += `<li>${$todo.attributes.value.value}</li>`; // 초기값 value
+    $todo.value = '';
+  }
+</script>
+</html>

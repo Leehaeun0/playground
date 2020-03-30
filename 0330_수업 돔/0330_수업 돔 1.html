@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li id="banana">Apple</li>
+      <li id="banana">Banana</li>
+      <li id="orange">Orange</li>
+    </ul>
+    <script>
+      // id 값이 'banana'인 요소 노드를 탐색하여 반환한다.
+      // 두번째 li 요소가 반환된다.
+      const $elem = document.getElementById('banana'); // 바나나라는 아이디를 찾는다.
+      const $elem = document.querySelector('banana'); // 바나나라는 태그를 찾는다.
+      const $elem = document.querySelector('#banana'); // 바나나라는 아이디를 찾는다.
+      const $elems = document.querySelector('#banana'); // 바나나라는 아이디를 찾는다.
+
+      // 취득한 요소 노드의 style.color 프로퍼티 값을 변경한다.
+      $elem.style.color = 'red';
+    </script>
+  </body>
+</html>

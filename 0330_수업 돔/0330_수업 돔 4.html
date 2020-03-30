@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+
+</head>
+
+<body>
+  <input type="text" class="todoInput" placeholder="enter todos!">
+  <ul class="todos">
+    <!-- <li class="textline"> <input type="checkbox" checked> html <button>X</button></li> -->
+  </ul>
+
+  <style>
+    .todos .textline {
+      text-decoration: line-through;
+    }
+  </style>
+</body>
+
+
+<script>
+  const $todoInput = document.querySelector('.todoInput');
+  const $todos = document.querySelector('.todos');
+  const $tos = document.querySelector('.tos');
+
+  $todoInput.onkeyup = function (e) {
+    if (e.keyCode !== 13) return;
+    $todos.innerHTML += `<li><input type="checkbox"> ${$todoInput.value} <button>X</button></li>`;
+    $todoInput.value = ''; 
+
+    const $check = $todos.querySelector('li input');
+    const $li = $todos.querySelector('li');
+    console.dir($check);
+    console.dir($li);
+
+    $check.onclick = function (e) {
+  
+      if ($check.checked) {
+        $todos.innerHTML = `<li class="textline"> <input type="checkbox" checked> ${$todoInput.value} <button>X</button></li>`
+        
+      // $li.classList.add('textline"');
+      
+      // // 기존 노드를 치환할 요소 노드
+      // const $newChild = document.createElement('li');
+      // // $fruits 요소의 첫번째 요소를 $newChild로 교체
+      // $fruits.replaceChild($newChild, $fruits.firstElementChild);
+      }
+    }
+
+  };
+  
+  
+
+
+
+</script>
+
+</html>
