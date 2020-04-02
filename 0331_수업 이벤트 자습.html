@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+  .undder {
+    text-decoration: underline;  
+  }
+  </style>
+</head>
+
+
+<body>
+  <nav>
+    <ul class="fruits">
+      <li id="apple">Apple</li>
+      <li id="banana">Banana</li>
+      <li id="orange">Orange</li>
+    </ul>
+  </nav>
+
+  <em id="msg">start</em>
+
+
+  <script>
+
+    const $fruits = document.querySelector('.fruits')
+    const $msg = document.getElementById('msg')
+    // console.log($fruits, $msg);
+
+    $fruits.onclick = function (e) {
+      if (e.target === $fruits) return;
+      console.dir(e.target);
+
+      [...$fruits.children].forEach(fruit => {
+        // if (e.target === fruit) fruit.classList.add('undder');
+        // else fruit.classList.remove('undder');
+
+        fruit.classList.toggle('undder', e.target === fruit)
+      });
+
+      msg.textContent = e.target.id;
+    }
+
+  </script>
+</body>
+</html>

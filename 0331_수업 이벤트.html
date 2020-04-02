@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .undder {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul id="fruits">
+      <li id="apple">Apple</li>
+      <li id="banana">Banana</li>
+      <li id="orange">Orange</li>
+    </ul>
+  </nav>
+  <em class="msg">apple</em>
+
+  <script>
+    const $fruits = document.getElementById('fruits');
+    const $msg = document.querySelector('.msg');
+
+    $fruits.onclick = e => {
+      // console.log(e.target); // 타겟으로 ul 도 걸림
+      if (!e.target.matches('#fruits > li')) return;
+
+      // console.log(e.target.id);
+      // console.log([...$fruits.children]);
+
+      [...$fruits.children].forEach($fruit => {
+        // if ($fruit === e.target) {
+        //   $fruit.classList.add('undder')
+        // } else {
+        //   $fruit.classList.remove('undder')
+        // }
+
+        $fruit.classList.toggle('undder', $fruit === e.target)
+      });
+
+      $msg.textContent = e.target.id;
+
+      // e.target.style.textDecoration = 'underline';
+    }
+  </script>
+</body>
+
+</html>
